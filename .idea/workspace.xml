@@ -5,43 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6e617a0d-a260-47c4-9c60-0508f995a490" name="Changes" comment="初始化博客">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/read_sf_lf/2019-01-01-sf-lf-01-basics.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/read_sf_lf/2019-01-02-sf-lf-02-induction.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/read_sf_lf/2019-01-03-sf-lf-03-list.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/read_sf_lf/2019-01-04-sf-lf-04-poly.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/read_sf_lf/2019-01-05-sf-lf-05-tactics.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/read_sf_lf/2019-01-06-sf-lf-06-logic.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/read_sf_lf/2019-01-07-sf-lf-07-indprop.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/read_sf_lf/2019-01-08-sf-lf-08-map.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/read_sf_lf/2019-01-09-sf-lf-09-proof-object.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/read_sf_lf/2019-01-10-sf-lf-10-ind-principle.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/read_sf_lf/2019-01-11-sf-lf-11-rel.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/read_sf_lf/2019-01-12-sf-lf-12-imp.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/read_sf_lf/2019-01-13-sf-lf-13-imp-parser.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/read_sf_lf/2019-01-14-sf-lf-14-imp-ceval.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/read_sf_lf/2019-01-15-sf-lf-15-extraction.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/read_sf_lf/2019-01-16-sf-lf-16-auto.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/read_sf_plf/2019-03-01-sf-plf-01-equiv.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/read_sf_plf/2019-03-02-sf-plf-02-hoare-1.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/read_sf_plf/2019-03-03-sf-plf-03-hoare-2.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/read_sf_plf/2019-03-04-sf-plf-04-hoare-logic.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/read_sf_plf/2019-03-05-sf-plf-05-smallstep.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/read_sf_plf/2019-03-06-sf-plf-06-types.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/read_sf_plf/2019-03-07-sf-plf-07-STLC.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/read_sf_plf/2019-03-08-sf-plf-08-STLC-prop.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/read_sf_plf/2019-03-09-sf-plf-09-more-STLC.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/read_sf_plf/2019-03-10-sf-plf-10-subtyping.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/read_sf_plf/2019-03-11-sf-plf-11-typechecking.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/read_sf_plf/2019-03-12-sf-plf-12-records.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/read_sf_plf/2019-03-13-sf-plf-13-references.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/read_sf_plf/2019-03-14-sf-plf-14-record-sub.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/read_sf_plf/2019-03-15-sf-plf-15-norm-STLC.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/read_sf_plf/2019-03-16-sf-plf-16-lib-tactics.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/read_sf_plf/2019-03-17-sf-plf-17-use-tactics.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/read_sf_plf/2019-03-18-sf-plf-18-use-auto.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/read_sf_plf/2019-03-19-sf-plf-19-partial-eval.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/read_sf_qc/2019-09-02-sf-qc-02-typeclasses.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
