@@ -15,4 +15,4 @@
   - 
 - Go
 
-  - [ 结构体](zh-cn/Python/struck.md)
+  - [ 结构体](zh-cn/Go/struck.md)
