@@ -22,10 +22,10 @@
   - [promethues](zh-cn/监控/prometheus/告警带图.md)
   
 - vscode
-  - [快捷键](zh-cn/vscode/快捷键.md)
+  - [vscode快捷键](zh-cn/vscode/快捷键.md)
   
 - vim
-  - [快捷键]( zh-cn/vim/快捷键.md)
+  - [vim快捷键]( zh-cn/vim/快捷键.md)
   
 - 一级目录
   - [文档1](zh-cn/vscode/快捷键.md)
