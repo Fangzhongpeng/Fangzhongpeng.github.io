@@ -2,6 +2,8 @@
 
   - [docsify文档编写教程
     ](zh-cn/README.md)
+- markdown
+    - [markdown语法](zh-cn/markdown/markdown.md)
 - C++
 
   - [基础](zh-cn/C++/base.md)
