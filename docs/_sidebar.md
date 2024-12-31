@@ -1,6 +1,6 @@
 - 前言
 
-  - [Tips](zh-cn/README.md)
+  - [编写docsify文档](zh-cn/README.md)
 - markdown
     - [markdown语法](zh-cn/markdown/markdown.md)
 - C++
