@@ -21,8 +21,8 @@
 - 监控
   - [promethues](zh-cn/监控/prometheus/告警带图.md)
   
-- 一级目录
-  - [vscode](zh-cn/vscode/快捷键.md)
+- vscode
+  - [快捷键](zh-cn/vscode/快捷键.md)
   - 二级目录
     - [test](zh-cn/vscode/快捷键.md)
     -  三级目录
