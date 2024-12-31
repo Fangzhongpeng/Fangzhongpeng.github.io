@@ -21,3 +21,4 @@
   
 - 监控
   - [promethues](zh-cn/监控/prometheus/告警带图.md)
+  - [promethues][test](zh-cn/监控/prometheus/告警带图.md)
