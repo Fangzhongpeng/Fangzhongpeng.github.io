@@ -1,4 +1,3 @@
-
 - 前言
 
   - [编写docsify文档](zh-cn/README.md)
@@ -14,7 +13,7 @@
   - [基础](zh-cn/Python/base.md)
   - [函数](zh-cn/Python/func.md)
   - [对象](zh-cn/Python/object.md)
-  - 
+
 - Go
 
   - [ 结构体](zh-cn/Go/struck.md)
@@ -33,21 +32,4 @@
   - 二级目录
     - [文档11222](zh-cn/vscode/快捷键.md)
     -  三级目录
-       - [文档333哈哈](zh-cn/vscode/快捷键.md)  
-
-
-# markdown语法
-
-> #### Markdown*是什么*？
->
-> #### *谁*创造了它？
->
-> #### *为什么*要使用它？
->
-> #### *怎么*使用？
->
-> #### *谁*在用？
->
-> #### 尝试一下
-
-# 正文
+       - [文档333666](zh-cn/vscode/快捷键.md)  
