@@ -12,4 +12,4 @@
 <br>
 
 [GitHub](https://github.com/Fangzhongpeng/Fangzhongpeng.github.io)
-[开始阅读](?id=中文文档)
+[开始阅读](README)
