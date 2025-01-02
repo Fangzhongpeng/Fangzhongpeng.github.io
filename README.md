@@ -1,7 +1,35 @@
-# **docsify-demo**
-## **[哔哩哔哩作者：-相依-](https://space.bilibili.com/343154012)** &emsp;**UPDATE 2021-2-6**
-> **本项目为大家提供一个较完整的docsify框架结构**
->> **该项目仅限学习交流，请勿用于商业用途，如有侵权，请联系删除。**
+- 前言
 
--  **[国内优先 Gitee 在线阅读](https://mochazi.gitee.io/docsify-demo)** | [Gitee 仓库地址](https://gitee.com/mochazi/docsify-demo)
--  **[国外优先 GitHub 在线阅读](https://mochazi.github.io/docsify-demo)** | [GitHub 仓库地址](https://github.com/mochazi/docsify-demo)
+  - [编写docsify文档](zh-cn/README.md)
+- markdown
+    - [markdown语法](zh-cn/markdown/markdown.md)
+- C++
+
+  - [基础](zh-cn/C++/base.md)
+  - [函数](zh-cn/C++/func.md)
+  - [对象](zh-cn/C++/object.md)
+- Python
+
+  - [基础](zh-cn/Python/base.md)
+  - [函数](zh-cn/Python/func.md)
+  - [对象](zh-cn/Python/object.md)
+  - 
+- Go
+
+  - [ 结构体](zh-cn/Go/struck.md)
+  
+- 监控
+  - [promethues](zh-cn/监控/prometheus/告警带图.md)
+  
+- vscode
+  - [vscode快捷键](zh-cn/vscode/快捷键.md)
+  
+- vim
+  - [vim快捷键]( zh-cn/vim/快捷键.md)
+  
+- 一级目录
+  - [文档1](zh-cn/vscode/快捷键.md)
+  - 二级目录
+    - [文档11222](zh-cn/vscode/快捷键.md)
+    -  三级目录
+       - [文档333](zh-cn/vscode/快捷键.md)  
