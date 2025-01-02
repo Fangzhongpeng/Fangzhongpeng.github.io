@@ -53,7 +53,7 @@
 
 # 监控
 
-* **promethues**
+##  promethues
   * [告警带图](zh-cn/监控/prometheus/告警带图.md)
 
 # 工具 
