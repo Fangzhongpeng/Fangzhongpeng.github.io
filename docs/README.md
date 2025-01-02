@@ -44,9 +44,15 @@
   * [12 - 并发](/Golang/Golang入门笔记-CH12-并发.md)
 
 
-- 监控
-  - [promethues](zh-cn/监控/prometheus/告警带图.md)
-
+## 监控
+  * [promethues](zh-cn/监控/prometheus/告警带图.md)
+## 目录层级
+- 一级目录
+  - [文档1](zh-cn/vscode/快捷键.md)
+  - 二级目录
+    - [文档11222](zh-cn/vscode/快捷键.md)
+    -  三级目录
+       - [文档333666](zh-cn/vscode/快捷键.md)  
 ##  Vue.js
 
 * [IDEA 搭建 Vue 项目 Demo](FrontEnd/Vue/idea-to-vue.md)
