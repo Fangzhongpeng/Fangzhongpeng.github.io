@@ -1,4 +1,4 @@
-<img width="160px" style="border-radius: 50%" bor src="style/head_portrait.jpg">
+<img width="160px" style="border-radius: 50%" bor src="style/head_portrait.png">
 
 # 𝑻𝒊𝒑𝒔
 > 运维𝑻𝒊𝒑𝒔,记录常用运维小知识
