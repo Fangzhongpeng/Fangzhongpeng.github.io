@@ -44,31 +44,21 @@
   * [12 - 并发](/Golang/Golang入门笔记-CH12-并发.md)
 
 
-## 监控
-  * [promethues](zh-cn/监控/prometheus/告警带图.md)
-## 目录层级
-- 一级目录
-  - [文档1](zh-cn/vscode/快捷键.md)
-  - 二级目录
-    - [文档11222](zh-cn/vscode/快捷键.md)
-    -  三级目录
-       - [文档333666](zh-cn/vscode/快捷键.md)  
+
+
 ##  Vue.js
 
 * [IDEA 搭建 Vue 项目 Demo](FrontEnd/Vue/idea-to-vue.md)
 * [Vue.js 基础入门笔记](FrontEnd/Vue/vue-base-notes.md)
 
-#   面试有招
+# 监控
 
-> 一场生死较量，努力展示自己的才能的时刻！
-
-* 技术面试
-  
-  * 来这里看看：[🚀 技术面试题](interview/README.md)
+* **promethues**
+  * [告警带图](zh-cn/监控/prometheus/告警带图.md)
 
 # 工具 
 
-* [vscode](Vscode/快捷键.md)
+* [vscode快捷键](Vscode/快捷键.md)
 
 <!-- # 🎅 赞赏作者
 
