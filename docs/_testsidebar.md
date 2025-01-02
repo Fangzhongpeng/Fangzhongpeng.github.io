@@ -13,7 +13,7 @@
   - [基础](zh-cn/Python/base.md)
   - [函数](zh-cn/Python/func.md)
   - [对象](zh-cn/Python/object.md)
-  - 
+
 - Go
 
   - [ 结构体](zh-cn/Go/struck.md)
@@ -32,4 +32,4 @@
   - 二级目录
     - [文档11222](zh-cn/vscode/快捷键.md)
     -  三级目录
-       - [文档333](zh-cn/vscode/快捷键.md)  
+       - [文档333666](zh-cn/vscode/快捷键.md)  
