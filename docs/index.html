@@ -24,6 +24,7 @@
 
   <script>
     window.$docsify = {
+      
       el: '#app',
       name: '𝑻𝒊𝒑𝒔',
       repo: 'https://github.com/fangzhongpeng/Fangzhongpeng.github.io',
@@ -49,6 +50,13 @@
           '/zh-cn/':'😒 找不到结果',
           '/en-us/':'😒 No Results'
         },
+        //字数统计
+      count: {
+        countable: true,
+        fontsize: '0.9em',
+        color: 'rgb(90,90,90)',
+        language: 'chinese'
+      },  
   
         depth: 4,         //搜索标题的最大层级
         maxAge: 86400000, // 过期时间，单位毫秒，默认一天
@@ -98,7 +106,10 @@
   <script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-yaml.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-properties.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-matlab.js"></script>
-  
+  <!-- 流畅的翻页效果 -->  
+  <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
+  <!-- 字数统计插件-->
+
   <!-- CDN files for docsify-katex -->
   <script src="//cdn.jsdelivr.net/npm/docsify-katex@latest/dist/docsify-katex.js"></script>
   
