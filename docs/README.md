@@ -85,41 +85,6 @@
 
 # 🚀 计算机基础
 
-## ⏳ 算法与数据结构
-
-* [算法与数据结构学习笔记（C 语言版）](计算机专业课/算法与数据结构/算法与数据结构笔记.md)
-
-## 📜 数据库
-
-* [数据库原理及应用学习笔记](计算机专业课/数据库/数据库原理及应用.md)
-
-## 🐼 数理统计
-
-* [1 - 抽样和抽样分布](/计算机专业课/数理统计/CH01-抽样和抽样分布.md)
-
-## 📘 微机原理
-
-* [微机原理学习笔记](计算机专业课/微机原理/微机原理笔记.md)
-
-## ⏰ 计算机组成原理
-
-* [【零】参考资料](计算机专业课/计算机组成原理/参考资料.md)
-* [【一】计算机系统概论](计算机专业课/计算机组成原理/一、计算机系统概论.md)
-
-## 🔋 软件工程
-
-* [软件工程学习笔记](计算机专业课/软件工程/软件工程学习笔记.md)
-
-## 💭 设计模式
-
-* [【零】参考资料](计算机专业课/设计模式/参考资料.md)
-* [【一】介绍](计算机专业课/设计模式/一、介绍.md)
-* [【二】面向对象设计原则](计算机专业课/设计模式/二、面向对象设计原则.md)
-
-# 🐋 刷题 OJ
-
-* [🍉 刷题在行动，加油！](OJ/README.md)
-
 # 🥼 前端学习
 
 ## 🥉 Vue.js
@@ -135,46 +100,9 @@
   
   * 来这里看看：[🚀 技术面试题](interview/README.md)
 
-* 研究生复试
-  
-  * [🌼 英语面试和口语](PostgraduateExam/english-interview-speaking.md)  >>  考核形式：听力 + 面试
-  * [🔨 计算机专业面试](PostgraduateExam/计算机专业面试.md)  >>  考核形式：笔试 + 面试，考察专业基础课和专业技能
-  * [👀 计算机专业英语](PostgraduateExam/计算机专业英语.md)  >>  考查计算机专业英语，考查形式：翻译计算机行业前景文章（相关，看具体情况）
-  * 笔试是 C 高级程序设计，可以看看这个：[💎](C/高级程序设计复试笔试准备题.md)
+# 🔨 工具 
 
-# 🎨 论文投稿
-
-* [🎉 分享免费下载论文的网站](ToolBox/ShareToFreeDownloadPapers.md)
-* [🎉 分享如何在论文中画漂亮的插图](ToolBox/分享如何在论文中画插图.md)
-* [🎉 LaTex 语法使用指南](ToolBox/LaTex使用指南.md)
-* [🎉 如何在期刊上发表论文](论文方面/如何在期刊上发表论文.md)
-* [🎉 SCI 论文写作攻略](论文方面/SCI论文写作攻略.md)
-* [🎉 EndNote 使用教程](/论文方面/EndNote使用教程.md)
-
-## 📑 论文期刊阅读
-
-* [🎉 文献期刊阅读平台推荐](ToolBox/ShareToFreeDownloadPapers.md)
-  * [【一】知网了解行业趋势](https://www.cnki.net/)
-  * [【二】计算机研究与发展](http://crad.ict.ac.cn/CN/1000-1239/home.shtml)
-  * http://www.sstir.cn/
-  * [【四】论文阅读平台个人推荐版](ToolBox/ShareToFreeDownloadPapers.md)
-  * [【五】科学知识平台（X - MOL）](https://www.x-mol.com/)
-  * [【六】安全内参期刊阅读](https://www.secrss.com/)
-* [🎉 论文阅读计划 - 每周阅读总结系列](https://wugenqiang.github.io/PaperSummary/)
-
-# 🐝 生物信息学
-
-* **【一】生信基础**
-  * [0 - 生信入门提纲](https://share.mubu.com/doc/3vY2uU7ad0q)
-  * [1 - 生物化学学习笔记](https://share.mubu.com/doc/2-jteI75xgq)
-  * [4 - 生物信息学学习笔记](https://share.mubu.com/doc/eGqzCLtQ0q)
-* **【二】文献阅读**
-
-# 🔨 工具 CooL
-
-* [🔨 ToolBox 实用工具库](ToolBox/Tools.md)
-* [🔨 写博客必备软件推荐](ToolBox/写博客必备神器.md)
-* [🔨 Latex 语法使用指南](ToolBox/LaTex使用指南)
+* [🔨 vscode](Vscode/快捷键.md)
 
 <!-- # 🎅 赞赏作者
 
