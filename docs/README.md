@@ -15,14 +15,6 @@
 * [**【二】上机题代码练习**](C/C-Code.md)
 * [**【三】南开 100 题 C 语言版**](C/南开100题C语言版.md)
 
-##  C++
-
-* [C++ 学习笔记](C++/C++Notes.md)
-
-##  Java
-
-* [Java 入门基础编程笔记](/Java/Java-Base-Notes.md)
-
 ##  Python
 
 * [ 欢迎进入 Python 王国](Python/) >> Python 编程练习推荐平台：[https://python123.io](https://python123.io) 提供在线编程实践。
@@ -51,9 +43,9 @@
   * [11 - 错误处理](/Golang/Golang入门笔记-CH11-错误处理.md)
   * [12 - 并发](/Golang/Golang入门笔记-CH12-并发.md)
 
-#  计算机基础
 
-#  前端学习
+- 监控
+  - [promethues](zh-cn/监控/prometheus/告警带图.md)
 
 ##  Vue.js
 
