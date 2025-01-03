@@ -20,11 +20,11 @@
 ###### 强制删除NAMESPACE
     kubectl delete namespace NAMESPACENAME --force --grace-period=0
 
-###### 使用 kubectl top 获取 Pod 列表并根据其消耗的 CPU 或 内存进行排序
-###### 获取 cpu
+
+###### 获取 cpu并排序
     kubectl top pod -A | sort --reverse --key 3 --numeric
 
-###### 获取 memory
+###### 获取 memory并排序
     kubectl top pod -A | sort --reverse --key 4 --numeric
 
 ###### 基础命令create，delete，get，run，expose，set，explain，edit
@@ -394,29 +394,29 @@
     kubectl cp <some-namespace>/<some-pod>:/tmp/foo /tmp/bar
 
 
-- pod 按照内存排序
+##### pod 按照内存排序
         kubectl top pods  -A | sort --reverse --key 4 --numeric
-- pod 按照cpu排序
+##### pod 按照cpu排序
         kubectl top pod -A | sort --reverse --key 3 --numeric
-- 查看 node的总的request和limit值
+##### 查看 node的总的request和limit值
         kubectl get nodes --no-headers | awk '{print $1}' | xargs -I {} sh -c "echo {} ; kubectl describe node {} | grep Allocated -A 5 | grep -ve Event -ve Allocated -ve percent -ve --;"
-- 所有pod按照内存请求排序
+##### 所有pod按照内存请求排序
         kubectl get pods --all-namespaces -o custom-columns="NAMESPACE:.metadata.namespace,POD:.metadata.name,MEMORY_REQUEST:.spec.containers[*].resources.requests.memory" | sort -t ' ' -k3 -h
-- 按照node节点分组，将节点pod按照请求内存排序
+##### 按照node节点分组，将节点pod按照请求内存排序
         kubectl get pods --all-namespaces -o custom-columns="NAMESPACE:.metadata.namespace,NODE:.spec.nodeName,POD:.metadata.name,MEMORY_REQUEST:.spec.containers[*].resources.requests.memory" | sort -k2,2 -k4,4h
-- 按照所有pod cpu请求排序
+##### 按照所有pod cpu请求排序
         kubectl get pods --all-namespaces -o custom-columns="NAMESPACE:.metadata.namespace,POD:.metadata.name,CPU_REQUEST:.spec.containers[*].resources.requests.cpu" --sort-by=.spec.containers[0].resources.requests.cpu
 
-- 按照node节点分组，将节点pod按照请求cpu排序
+##### 按照node节点分组，将节点pod按照请求cpu排序
         kubectl get pods --all-namespaces -o custom-columns="NAMESPACE:.metadata.namespace,POD:.metadata.name,CPU_REQUEST:.spec.containers[*].resources.requests.cpu,NODE:.spec.nodeName" | sort -k4,4h
 
--   按照node节点分组，将节点pod按照内存 limit 排序
+#####   按照node节点分组，将节点pod按照内存 limit 排序
         kubectl get pods --all-namespaces -o custom-columns="NAMESPACE:.metadata.namespace,NODE:.spec.nodeName,POD:.metadata.name,MEMORY_LIMIT:.spec.containers[*].resources.limits.memory" | sort -k2,2 -k4,4 | column -t
 
-- 按照node节点分组，将节点pod按照cpu limit 排序
+##### 按照node节点分组，将节点pod按照cpu limit 排序
 
-- 获取前一个容器的日志：
+##### 获取前一个容器的日志：
         kubectl logs goods-center-web-6db555bcb9-6g7rt --previous --tail=4000 -n=saas-prod
 
-- 平滑删除pod
+##### 平滑删除pod
         kubectl -n pre delete pod factory-process-web-f-86b9b6d89-bnrjr  --grace-period=45
