@@ -158,36 +158,38 @@
     }
 
     /*侧边栏*/
-    .sidebar {
+    /* .sidebar {
       padding-top: 6px;
-    }
+    }  */
 
-    aside.sidebar ul li {
+    /* aside.sidebar ul li {
       margin: 0;
       position: relative;
-    }
+    }  
 
     aside.sidebar ul li ul {
       margin: 6px 0;
-    }
+    }   */
 
-    aside.sidebar ul li p {
+     /* aside.sidebar ul li p {
       padding-left: 22px;
-      font-size: 18px;
-      font-weight: normal;
-    }
+      font-size: 14px;
+      font-weight: bold;
+    } */
 
-    aside.sidebar ul li a {
+    /* aside.sidebar ul li a {
       line-height: 35px;
       font-size: 14px;
-      padding: 3px 0 3px 22px;
-    }
+       padding: 3px 0 3px 22px; 
+       padding-left: 30px 
+    } 
+    */
 
-    aside.sidebar ul li.active > a {
-      font-size: 16px !important;
-    }
+    /* aside.sidebar ul li.active > a {
+      font-size: 15px !important;
+    }  */
 
-    aside.sidebar ul li.active > a:before {
+    /* aside.sidebar ul li.active > a:before {
       content: '' !important;
       position: absolute !important;
       margin: 0 !important;
@@ -198,7 +200,7 @@
       border-radius: 50% !important;
       background-color: #fed24a !important;
       box-shadow: 0 0 0 3px rgba(254, 210, 74, 0.4) !important;
-    }
+    }  */
 
     /*以上调侧边栏*/
 
@@ -218,7 +220,7 @@
 
     .markdown-section p.tip,
     .markdown-section tr:nth-child(1n) {
-      font-size: 16px !important;
+      font-size: 15px !important;
     }
 
     .markdown-section h1 {
@@ -245,7 +247,7 @@
       font-size: 13px !important;
     }
     .markdown-section>p {
-      font-size: 16px !important;
+      font-size: 15px !important;
     }
 
 
@@ -423,7 +425,7 @@
       border-radius: 2em;
     }
 
-  </style> 
+  </style>  
 
 
 
@@ -450,14 +452,16 @@
       nameLink: '/#/README',
       //repo: 'wugenqiang/NoteBook',
       themeColor: '#007be8', // 主题颜色
-      //loadSidebar: true,//_sidebar.md如果为真，则从_sidebar.md文件加载边栏，否则从指定的路径加载
+      loadSidebar: true,//_sidebar.md如果为真，则从_sidebar.md文件加载边栏，否则从指定的路径加载
       auto2top: true,  //当路线改变时,滚动到屏幕的顶部
       loadNavbar: true,//_navbar.md如果为真，则从_navbar.md文件加载navbar ，否则从指定的路径加载
       mergeNavbar: true,//Navbar将在小屏幕上与侧边栏合并
       executeScript: true,//执行页面上的脚本。只解析第一个脚本标记（演示）。如果存在Vue，则默认开
-      maxLevel: 6,//最大的内容表级别
+      maxLevel: 1,//最大的内容表级别
       //subMaxLevel: 6,//在自定义边栏中添加目录（TOC)
       externalLinkTarget: '_blank', //外链打开方式：_blank表示在新标签页中打开
+      sidebarDisplayLevel: 1, // set sidebar display level
+      subMaxLevel: 3,
       coverpage: true,
       onlyCover: true,
       topMargin: 60,//调整top
@@ -526,7 +530,7 @@
             if(pdf_renderer(code, lang, true)){
               return pdf_renderer(code, lang, false);
             }
-            //return this.origin.code.apply(this, arguments);
+            //return this.origin.code.apply(this, arguments);f
             return (base ? base : this.origin.code.apply(this, arguments));
           }
         }
@@ -534,6 +538,11 @@
 
     }
   </script>
+  <!--侧边栏折叠箭头模式-->  
+  <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/sidebar.min.css" /> -->
+
+  <script src="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
+
   <script src="https://cdn.jsdelivr.net/npm/docsify-hide-code/dist/docsify-hide-code.min.js"></script>
 
   <script src="https://notebook.js.org/plugin/js/docsify.min.js"></script>
@@ -592,6 +601,7 @@
   <script src="https://notebook.js.org/plugin/js/prism-yaml.js"></script>
   <script src="https://notebook.js.org/plugin/js/prism-go.js"></script>
   <script src="https://notebook.js.org/plugin/js/prism-matlab.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
 
   <!-- 使用 Gitter 实现一个 IM 即时通讯聊天室功能 -->
   <!-- <script>
