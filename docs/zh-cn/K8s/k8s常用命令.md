@@ -27,58 +27,48 @@
 ###### 获取 memory并排序
     kubectl top pod -A | sort --reverse --key 4 --numeric
 
-###### 基础命令create，delete，get，run，expose，set，explain，edit
-    ###### create 命令：根据文件或者输入来创建资源
-        ###### 创建Deployment和Service资源
+##### **基础命令create，delete，get，run，expose，set，explain，edit** 
 
-            $ kubectl create -f demo-deployment.yaml
-            $ kubectl create -f demo-service.yaml
+> `create` 命令：根据文件或者输入来创建资源创建Deployment和Service资源
 
-    ###### get 命令 ：获得资源信息
-    ###### 查看所有的资源信息
-    $ kubectl get all
-    $ kubectl get --all-namespaces
-
-    ###### 查看pod列表
-        $ kubectl get pod
-
-    # 显示pod节点的标签信息
-        $ kubectl get pod --show-labels
-
-    ###### 根据指定标签匹配到具体的pod
-    $ kubectl get pods -l app=example
-
-    # 查看node节点列表
-    $ kubectl get node 
-
-    ###### 显示node节点的标签信息
-    $ kubectl get node --show-labels
-
-    ###### 查看pod详细信息，也就是可以查看pod具体运行在哪个节点上（ip地址信息）
-    $ kubectl get pod -o wide
-
-    ###### 查看服务的详细信息，显示了服务名称，类型，集群ip，端口，时间等信息
-    $ kubectl get svc
-    $ kubectl get svc -n kube-system
-
-    ###### 查看命名空间
+    kubectl create -f demo-deployment.yaml
+    kubectl create -f demo-service.yaml
+> `get` 命令 ：获得资源信息
+```
+    查看所有的资源信息
+    kubectl get all
+    kubectl get --all-namespaces
+    查看pod列表
+    kubectl get pod
+    显示pod节点的标签信息
+    kubectl get pod --show-labels
+    根据指定标签匹配到具体的pod
+    kubectl get pods -l app=example
+    查看node节点列表
+    kubectl get node 
+    显示node节点的标签信息
+    kubectl get node --show-labels
+    查看pod详细信息，也就是可以查看pod具体运行在哪个节点上（ip地址信息）
+    kubectl get pod -o wide
+    查看服务的详细信息，显示了服务名称，类型，集群ip，端口，时间等信息
+    kubectl get svc
+    kubectl get svc -n kube-system
+    查看命名空间
     $ kubectl get ns
     $ kubectl get namespaces
-
-    ###### 查看所有pod所属的命名空间
+     查看所有pod所属的命名空间
     $ kubectl get pod --all-namespaces
-
-    ###### 查看所有pod所属的命名空间并且查看都在哪些节点上运行
+    查看所有pod所属的命名空间并且查看都在哪些节点上运行
     $ kubectl get pod --all-namespaces  -o wide
-
-    ###### 查看目前所有的replica set，显示了所有的pod的副本数，以及他们的可用数量以及状态等信息
+    查看目前所有的replica set，显示了所有的pod的副本数，以及他们的可用数量以及状态等信息
     $ kubectl get rs
-
-    ###### 查看已经部署了的所有应用，可以看到容器，以及容器所用的镜像，标签等信息
+    查看已经部署了的所有应用，可以看到容器，以及容器所用的镜像，标签等信息
     $ kubectl get deploy -o wide
     $ kubectl get deployments -o wide
+```
 
-    ###### run 命令：在集群中创建并运行一个或多个容器镜像
+>    `run` 命令：在集群中创建并运行一个或多个容器镜像
+```
     基本语法run NAME --image=image [--env="key=value"] [--port=port] [--replicas=replicas] [--dry-run=bool] [--overrides=inline-json] [--command] -- [COMMAND] [args...]
     # 示例，运行一个名称为nginx，副本数为3，标签为app=example，镜像为nginx:1.10，端口为80的容器实例
     kubectl run nginx --replicas=3 --labels="app=example" --image=nginx:1.10 --port=80
@@ -86,39 +76,38 @@
 
     # 示例，运行一个名称为nginx，副本数为3，标签为app=example，镜像为nginx:1.10，端口为80的容器实例，并绑定到k8s-node1上
     $ kubectl run nginx --image=nginx:1.10 --replicas=3 --labels="app=example" --port=80 --overrides='{"apiVersion":"apps/v1","spec":{"template":{"spec":{"nodeSelector":{"kubernetes.io/hostname":"k8s-node1"}}}}}'
+```
 
-    ###### expose 命令 创建一个nginx服务并且暴露端口让外界可以访问
-
+>    `expose` 命令:创建一个nginx服务并且暴露端口让外界可以访问
+```
     $ kubectl expose deployment nginx --port=88 --type=NodePort --target-port=80 --name=nginx-service
 
     更多expose详细用法参见：http://docs.kubernetes.org.cn/475.html
+```
+>    `set` 命令: 配置应用的一些特定资源，也可以修改应用已有的资源
 
-    ###### set 命令
-    配置应用的一些特定资源，也可以修改应用已有的资源
-    使用 kubectl set --help查看，它的子命令，env，image，resources，selector，serviceaccount，subject。语法：resources (-f FILENAME | TYPE NAME) ([--limits=LIMITS & --requests=REQUESTS]
-    set 命令详情参见： http://docs.kubernetes.org.cn/669.html
-    kubectl set resources 命令
-    这个命令用于设置资源的一些范围限制。
+使用 kubectl set --help查看，它的子命令，env，image，resources，selector，serviceaccount，subject。
+语法：resources (-f FILENAME | TYPE NAME) [--limits=LIMITS & --requests=REQUESTS]
+set 命令详情参见： http://docs.kubernetes.org.cn/669.html
+```
+kubectl set resources 命令:这个命令用于设置资源的一些范围限制。
+
     资源对象中的Pod可以指定计算资源需求（CPU-单位m、内存-单位Mi），即使用的最小资源请求（Requests），限制（Limits）的最大资源需求，Pod将保证使用在设置的资源数量范围。
-    对于每个Pod资源，如果指定了Limits（限制）值，并省略了Requests（请求），则Requests默认为Limits的值。
-    可用资源对象包括(支持大小写)：replicationcontroller、deployment、daemonset、job、replicaset。
-    # 将deployment的nginx容器cpu限制为“200m”，将内存设置为“512Mi”
-    $ kubectl set resources deployment nginx -c=nginx --limits=cpu=200m,memory=512Mi
-
-    # 设置所有nginx容器中 Requests和Limits
-    $ kubectl set resources deployment nginx --limits=cpu=200m,memory=512Mi --requests=cpu=100m,memory=256Mi
-
-    # 删除nginx中容器的计算资源值
-    $ kubectl set resources deployment nginx --limits=cpu=0,memory=0 --requests=cpu=0,memory=0
-
-    ###### kubectl set selector 命令
-    设置资源的 selector（选择器）。如果在调用"set selector"命令之前已经存在选择器，则新创建的选择器将覆盖原来的选择器。
-    selector必须以字母或数字开头，最多包含63个字符，可使用：字母、数字、连字符" - " 、点"."和下划线" _ "。如果指定了--resource-version，则更新将使用此资源版本，否则将使用现有的资源版本。
+对于每个Pod资源，如果指定了Limits（限制）值，并省略了Requests（请求），则Requests默认为Limits的值。可用资源对象包括(支持大小写)：replicationcontroller、deployment、daemonset、job、replicaset。
+将deployment的nginx容器cpu限制为“200m”，将内存设置为“512Mi”$ kubectl set resources deployment nginx -c=nginx --limits=cpu=200m,memory=512Mi
+# 设置所有nginx容器中 Requests和Limits
+$ kubectl set resources deployment nginx --limits=cpu=200m,memory=512Mi --requests=cpu=100m,memory=256Mi
+# 删除nginx中容器的计算资源值
+$ kubectl set resources deployment nginx --limits=cpu=0,memory=0 --requests=cpu=0,memory=0
+```
+```
+    kubectl set selector 命令:设置资源的 selector（选择器）。如果在调用"set selector"命令之前已经存在选择器，则新创建的选择器将覆盖原来的选择器。
+        selector必须以字母或数字开头，最多包含63个字符，可使用：字母、数字、连字符" - " 、点"."和下划线" _ "。如果指定了--resource-version，则更新将使用此资源版本，否则将使用现有的资源版本。
     注意：目前selector命令只能用于Service对象。
     语法：selector (-f FILENAME | TYPE NAME) EXPRESSIONS [--resource-version=version]
-
-    ###### kubectl set image 命令
-    用于更新现有资源的容器镜像。
+```
+```
+    kubectl set image 命令:用于更新现有资源的容器镜像。
     可用资源对象包括：pod (po)、replicationcontroller (rc)、deployment (deploy)、daemonset (ds)、job、replicaset (rs)。
     语法：image (-f FILENAME | TYPE NAME) CONTAINER_NAME_1=CONTAINER_IMAGE_1 ... CONTAINER_NAME_N=CONTAINER_IMAGE_N
     # 将deployment中的nginx容器镜像设置为“nginx：1.9.1”
@@ -132,20 +121,24 @@
 
     # 从本地文件中更新nginx容器镜像
     $ kubectl set image -f path/to/file.yaml nginx=nginx:1.9.1 --local -o yaml
+```
 
-    ###### explain 命令
+```
+    explain 命令
     用于显示资源文档信息
     $ kubectl explain rs
-
-    ###### edit命令
+```
+```
+    edit命令
     用于编辑资源信息
     # 编辑Deployment nginx的一些信息
         $ kubectl edit deployment nginx
 
         # 编辑service类型的nginx的一些信息
         $ kubectl edit service/nginx
-
-    ###### 设置命令：label，annotate，completion
+```
+**设置命令：label，annotate，completion**
+```
     label命令
     用于更新（增加、修改或删除）资源上的 label（标签）
     - label 必须以字母或数字开头，可以使用字母、数字、连字符、点和下划线，最长63个字符。
@@ -208,8 +201,9 @@
 
     # 在您的 zsh shell 中永久的添加自动补全
     $ echo "if [ $commands[kubectl] ]; then source <(kubectl completion zsh); fi" >> ~/.zshrc 
-
-###### kubectl 部署命令：rollout，rolling-update，scale，autoscale
+```
+###### **kubectl 部署命令：rollout，rolling-update，scale，autoscale**
+```
     rollout 命令
     用于对资源进行管理,可用资源包括：deployments，daemonsets。
     history（查看历史版本）
@@ -268,8 +262,9 @@
 
     # 使用RC“foo”设定，使其Pod的数量介于1和5之间，CPU使用率维持在80％
     $ kubectl autoscale rc foo --max=5 --cpu-percent=80
-
-###### 集群管理命令：certificate，cluster-info，top，cordon，uncordon，drain，taint
+```
+###### **集群管理命令：certificate，cluster-info，top，cordon，uncordon，drain，taint**
+```
     certificate命令
     用于证书资源管理，授权等
     [root@master ~]# kubectl certificate --help
@@ -322,8 +317,9 @@
 
     向节点“ foo”添加带有键“ bar”且无值的污点
     kubectl taint nodes foo bar:NoSchedule
-
-##### 集群故障排查和调试命令：describe，logs，exec，attach，port-foward，proxy，cp，auth
+```
+##### **集群故障排查和调试命令：describe，logs，exec，attach，port-**
+```    
     describe命令：显示特定资源的详细信息
     语法：kubectl describe TYPE NAME_PREFIX（首先检查是否有精确匹配TYPE和NAME_PREFIX的资源，如果没有，将会输出所有名称以NAME_PREFIX开头的资源详细信息）支持的资源包括但不限于（大小写不限）：pods (po)、services (svc)、 replicationcontrollers (rc)、nodes (no)、events (ev)、componentstatuses (cs)、 limitranges (limits)、persistentvolumes (pv)、persistentvolumeclaims (pvc)、 resourcequotas (quota)和secrets。
     #查看my-nginx pod的详细状态
@@ -392,31 +388,44 @@
     
     将/tmp/foo从远程Pod复制到本地/tmp/bar
     kubectl cp <some-namespace>/<some-pod>:/tmp/foo /tmp/bar
+```
 
+pod 按照内存排序
 
-##### pod 按照内存排序
         kubectl top pods  -A | sort --reverse --key 4 --numeric
-##### pod 按照cpu排序
-        kubectl top pod -A | sort --reverse --key 3 --numeric
-##### 查看 node的总的request和limit值
-        kubectl get nodes --no-headers | awk '{print $1}' | xargs -I {} sh -c "echo {} ; kubectl describe node {} | grep Allocated -A 5 | grep -ve Event -ve Allocated -ve percent -ve --;"
-##### 所有pod按照内存请求排序
-        kubectl get pods --all-namespaces -o custom-columns="NAMESPACE:.metadata.namespace,POD:.metadata.name,MEMORY_REQUEST:.spec.containers[*].resources.requests.memory" | sort -t ' ' -k3 -h
-##### 按照node节点分组，将节点pod按照请求内存排序
-        kubectl get pods --all-namespaces -o custom-columns="NAMESPACE:.metadata.namespace,NODE:.spec.nodeName,POD:.metadata.name,MEMORY_REQUEST:.spec.containers[*].resources.requests.memory" | sort -k2,2 -k4,4h
-##### 按照所有pod cpu请求排序
-        kubectl get pods --all-namespaces -o custom-columns="NAMESPACE:.metadata.namespace,POD:.metadata.name,CPU_REQUEST:.spec.containers[*].resources.requests.cpu" --sort-by=.spec.containers[0].resources.requests.cpu
+pod 按照cpu排序
 
-##### 按照node节点分组，将节点pod按照请求cpu排序
+        kubectl top pod -A | sort --reverse --key 3 --numeric
+查看 node的总的request和limit值
+
+        kubectl get nodes --no-headers | awk '{print $1}' | xargs -I {} sh -c "echo {} ; kubectl describe node {} | grep Allocated -A 5 | grep -ve Event -ve Allocated -ve percent -ve --;"
+所有pod按照内存请求排序
+
+        kubectl get pods --all-namespaces -o custom-columns="NAMESPACE:.metadata.namespace,POD:.metadata.name,MEMORY_REQUEST:.spec.containers[*].resources.requests.memory" | sort -t ' ' -k3 -h
+按照node节点分组，将节点pod按照请求内存排序
+
+        kubectl get pods --all-namespaces -o custom-columns="NAMESPACE:.metadata.namespace,NODE:.spec.nodeName,POD:.metadata.name,MEMORY_REQUEST:.spec.containers[*].resourc
+        zes.requests.memory" | sort -k2,2 -k4,4h
+按照所有pod cpu请求排序
+
+        kubectl get pods --all-namespaces -o custom-columns="NAMESPACE:.metadata.namespace,POD:.metadata.name,CPU_REQUEST:.spec.containers[*].resources.requests.cpu" --sort-by=.spec.containe
+        rs[0].resources.requests.cpu
+
+按照node节点分组，将节点pod按照请求cpu排序
+
         kubectl get pods --all-namespaces -o custom-columns="NAMESPACE:.metadata.namespace,POD:.metadata.name,CPU_REQUEST:.spec.containers[*].resources.requests.cpu,NODE:.spec.nodeName" | sort -k4,4h
 
-#####   按照node节点分组，将节点pod按照内存 limit 排序
+按照node节点分组，将节点pod按照内存 limit 排序
+
         kubectl get pods --all-namespaces -o custom-columns="NAMESPACE:.metadata.namespace,NODE:.spec.nodeName,POD:.metadata.name,MEMORY_LIMIT:.spec.containers[*].resources.limits.memory" | sort -k2,2 -k4,4 | column -t
 
-##### 按照node节点分组，将节点pod按照cpu limit 排序
+按照node节点分组，将节点pod按照cpu limit 排序
 
-##### 获取前一个容器的日志：
+
+获取前一个容器的日志：
+
         kubectl logs goods-center-web-6db555bcb9-6g7rt --previous --tail=4000 -n=saas-prod
 
-##### 平滑删除pod
+平滑删除pod
+
         kubectl -n pre delete pod factory-process-web-f-86b9b6d89-bnrjr  --grace-period=45
