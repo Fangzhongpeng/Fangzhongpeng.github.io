@@ -1,0 +1,11 @@
+#!/bin/bash
+install_software()
+{
+    echo "starting install software ..."
+    yum install epel-release -y
+    yum update -y
+    yum install git wget vim-enhanced   net-tools.x86_64 net-tools lrzsz  nmap vim htop iftop iotop gcc gcc-c++ net-tools unzip  zip  telnet lsof -y
+    echo "software installed !!!"
+}
+install_software
+cat /etc/issue* /etc/*release 2>/dev/null|grep -qE "debian|ubuntu|Ubuntu"&&OS="Debian" cat /etc/issue* /etc/*release 2>/dev/null|grep -qE "release|centos|CentOS"&&OS="RedHat" if [ "$OS" = "RedHat" ];then yum -y install yum-utils yum -y install epel-release yum -y install bash-completion yum -y install gcc gcc-c++ make readline-devel pcre-devel openssl-devel perl bzip2-devel clang yum -q -y install vim wget curl zip bzip2 unzip rsync psmisc net-tools bind-utils telnet openssh-clients pcre openssl fi if [ "$OS" = "Debian" ];then apt-get -y update apt-get -y install libreadline-dev libpcre3-dev libssl-dev cmake perl libncurses5-dev build-essential clang apt-get -q -y install vim wget curl zip bzip2 unzip rsync psmisc net-tools dnsutils telnet fi

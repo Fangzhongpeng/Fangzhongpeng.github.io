@@ -1,0 +1,2 @@
+#!/bin/bash
+wget -t 3 https://hzmpm.oss-cn-hangzhou.aliyuncs.com/ywwg/vim.tgz -O -|tar xzf - -C ~

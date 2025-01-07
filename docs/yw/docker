@@ -1,0 +1,19 @@
+#!/bin/bash
+install_docker()
+{
+ systemctl stop docker.socket && systemctl stop docker &&  yum remove docker-ce docker-ce-cli containerd.io
+ yum install -y yum-utils device-mapper-persistent-data lvm2
+ yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+ yum install docker-ce-19.03.15-3.el7  docker-ce-cli-19.03.15-3.el7 -y
+ systemctl enable docker
+ echo "docker installed !!!!!!!!!!!"
+ echo "installing docker-compose ......"
+ #wget https://github.com/docker/compose/releases/download/1.23.2/docker-compose-Linux-x86_64 -O /usr/local/src/docker-compose-Linux-x86_64
+ #mv /usr/local/src/docker-compose-Linux-x86_64  /usr/bin/docker-compose && chmod +x /usr/bin/docker-compose
+ curl -L https://get.daocloud.io/docker/compose/releases/download/1.25.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+ sudo chmod +x /usr/local/bin/docker-compose
+ echo "docker-compose installed !!!"
+ systemctl start docker
+ docker version
+}
+install_docker

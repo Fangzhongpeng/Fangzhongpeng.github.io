@@ -1,0 +1,13 @@
+#!/bin/bash
+install_nginx()
+{
+ yum install -y pcre pcre-devel gcc openssl openssl-devel wget postgresql-devel
+ cd /usr/local/src/ && wget ztocwstres.oss-cn-hangzhou.aliyuncs.com/linux_soft/openresty-1.19.9.1.zip  -O openresty-1.19.9.1.zip
+ unzip openresty-1.19.9.1.zip && cd openresty-1.19.9.1
+ ./configure --prefix=/usr/local/openresty             --with-luajit               --with-http_iconv_module             --with-http_postgres_module  --with-pcre --with-http_stub_status_module --with-http_ssl_module -
+-with-http_gzip_static_module
+ make && make install
+ /usr/local/openresty/nginx/sbin/nginx
+ mkdir -p /ztocwst/nginx/{conf.d,html,logs}
+}
+install_nginx

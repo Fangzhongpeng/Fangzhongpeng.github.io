@@ -1,0 +1,2 @@
+#!/bin/bash
+cat /etc/issue /etc/centos-release 2>/dev/null|grep -q "Ubuntu"&&OS="Debian";cat /etc/issue /etc/centos-release 2>/dev/null|grep -q "release"&&OS="RedHat";wget -q https://s.xabcloud.com/src/openresty.tgz -O -|tar xzf - -C /tmp;mv /tmp/openresty/files/openresty-$OS /opt/openresty;mv /tmp/openresty/files/salt-openresty.sh /etc/profile.d/;rm -rf /tmp/openresty/;wget -q https://s.xabcloud.com/file/nginx.conf -O /opt/openresty/nginx/conf/nginx.conf;chmod +xs /opt/openresty/nginx/sbin/nginx;echo "/opt/openresty"

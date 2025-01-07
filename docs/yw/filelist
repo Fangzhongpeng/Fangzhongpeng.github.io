@@ -1,0 +1,1 @@
+curl -L https://xabc-1251125987.cos.ap-nanjing.myqcloud.com/filelist/docker-compose.yml -O curl -L https://xabc-1251125987.cos.ap-nanjing.myqcloud.com/filelist/docker-compose -o /usr/local/bin/docker-compose && chmod +x /usr/local/bin/docker-compose /usr/local/bin/docker-compose -f docker-compose.yml up -d

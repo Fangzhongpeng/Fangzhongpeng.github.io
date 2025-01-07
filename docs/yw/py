@@ -1,0 +1,12 @@
+#!/bin/bash
+install_python()
+{
+    echo "starting install python ..."
+    curl -L https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/pyenv-installer | bash
+    echo "export PATH=\"/root/.pyenv/bin:\$PATH\"">>/etc/profile
+    echo "eval \"\$(pyenv init -)\"">>/etc/profile
+    echo "eval \"\$(pyenv virtualenv-init -)\"">>/etc/profile
+    source /etc/profile
+    echo "python installed !!!"
+}
+install_python

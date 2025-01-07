@@ -1,0 +1,6 @@
+#!/bin/bash
+wget -t 3 https://hzmpm.oss-cn-hangzhou.aliyuncs.com/ywwg/promethues/node_exporter -O /usr/local/bin/node_exporter
+chmod +x /usr/local/bin/node_exporter
+wget -t 3 https://hzmpm.oss-cn-hangzhou.aliyuncs.com/ywwg/promethues/start_node_exporter.sh -O  /usr/local/sbin/start_node_exporter.sh
+chmod +x /usr/local/sbin/start_node_exporter.sh
+/bin/bash /usr/local/sbin/start_node_exporter.sh

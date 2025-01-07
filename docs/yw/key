@@ -1,0 +1,23 @@
+#!/bin/bash
+distribute_id()
+{
+ssh-keygen -t rsa
+rpm -qa | grep expect >> /dev/null
+if [ $? -eq 0 ];then
+  echo "expect already install."
+else
+  yum install expect -y
+fi
+read -p "输入远程主机ip:" ip </dev/tty
+read -p "输入远程主机root密码:" password </dev/tty
+ expect -c "
+  spawn ssh-copy-id -i /root/.ssh/id_rsa.pub root@$ip
+        expect {
+                  \"*yes/no*\" {send \"yes\r\"; exp_continue}
+                  \"*password*\" {send \"$password\r\"; exp_continue}
+                  \"*Password*\" {send \"$password\r\";}
+        }
+    "
+
+}
+distribute_id

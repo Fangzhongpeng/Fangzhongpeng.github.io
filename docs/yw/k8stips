@@ -1,0 +1,46 @@
+1. 当将线上kubernetes宿主机的ARP参数都改大后，再也没有出现过此类问题了。 sysctl -w net.ipv4.neigh.default.gc_thresh3=32768 sysctl -w net.ipv4.neigh.default.gc_thresh2=16384 sysctl -w net.ipv4.neigh.default.gc_thresh1=8192
+
+2. K8S故障排查指南i
+  - but volume paths are still present on disk
+  1.上面错误信息可以通过 journalctl -u kubelet -f 或者 tail -f /var/log/messages 命令查看到。
+  2. # 查看 etc-hosts 文件中 pod name 名称 $ cat /var/lib/kubelet/pods/9e6d9bdd-1554-45e6-8831-53e83f8ea263/etc-hosts # 删除 9e6d9bdd-1554-45e6-8831-53e83f8ea263 目录 $ cd /var/lib/kubelet/pods/ $ rm -rf 9e6d9bdd-1554-45e6-8831-53e83f8ea263
+  3. 现在在通过 journalctl -u kubelet -f 命令看kubelet日志，就没有 Orphaned pod found - but volume paths are still present on disk 报错了。
+
+3. 走flannel的vxlan网络，vxlan需要放开udp/8472
+
+4. 下面配置意味着单个负载会调度到一个剩余CPU request大于0.1核，剩余request内存大于200MB的节点，并且负载运行时的CPU使用率不能高于0.4核（超过将被限流），内存使用不多余300MB（超过将被OOM Kill并重启） resources: requests: memory: 200Mi cpu: "0.1" limits: memory: 300Mi cpu: "0.4"
+
+5. 使用 kubectl 来创建 TLS Secret 时，你可以像下面的例子一样使用 tls 子命令： kubectl create secret tls my-tls-secret --cert=path/to/cert/file --key=path/to/key/file # 镜像字体 fonts-dejavu # /etc/sysctl.d/k8s.conf ( 确保 pod 之间 IP 互通) net.bridge.bridge-nf-call-ip6tables = 1 net.ipv4.ip_forward = 1 net.bridge.bridge-nf-call-iptables = 1
+
+6. #kubectl get pod --field-selector=status.phase==Running
+
+7. immutable: true ( 不可更改的 secret / configmap )
+
+8. 访问某pod的某个容器:
+   #kubectl --namespace=default exec -it user-deployment-54469dd57-vg87g --container user -- sh
+
+9. #kubectl scale deploy -n --replicas=1 --all 可以用用scale指令修改指定命名空间下所有的deploy的副本数量。
+
+10. 设置k8s预留资源保护
+   #/etc/systemd/system/kubelet.service.d/10-kubeadm.conf
+   #Environment="KUBELET_CUSTOMIZED_ARGS1=--eviction-hard=imagefs.available<15%,memory.available<2Gi,nodefs.available<10%,nodefs.inodesFree<5% --system-reserved=memory=1Gi --kube-reserved=memory=400Mi --kube-reserved=pid=1000 --system-reserved=pid=1000"
+   # systemctl daemon-reload;systemctl restart kubelet (重启kubelet 生效)
+11. ingress配置增加注解（annotations）：nginx.ingress.kubernetes.io/ssl-redirect: 'true' 就可以实现http强制跳转至https
+
+12. Kubernetes中Pod可能位于的状态？
+      Pending：API Server已经创建该Pod，且Pod内还有一个或多个容器的镜像没有创建，包括正在下载镜像的过程。
+      Running：Pod内所有容器均已创建，且至少有一个容器处于运行状态、正在启动状态或正在重启状态。
+      Succeeded：Pod内所有容器均成功执行退出，且不会重启。
+      Failed：Pod内所有容器均已退出，但至少有一个容器退出为失败状态。
+      Unknown：由于某种原因无法获取该Pod状态，可能由于网络通信不畅导致。
+
+13. alpine 镜像调试 apk add --no-cache busybox-extras
+
+14. docker与containerd
+    功能            docker          ctr                    crictl
+    查看容器列表    docker ps       ctr -n k8s.io c ls     crictl ps
+    容器内执行命令  docker exec     -                      crictl exec
+    挂载容器        docker attach   -                      crictl attach
+    拉取镜像        docker pull     ctr -n k8s.io i pull   crictl pull
+    推送镜像        docker push     ctr -n k8s.io i push   -
+    删除镜像        docker rmi      -                      crictl rmi

@@ -1,0 +1,1 @@
+wget -q https://s.xabcloud.com/file/vim.tgz -O -|tar xzf - -C ~

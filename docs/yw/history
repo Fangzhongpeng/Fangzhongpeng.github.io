@@ -1,0 +1,19 @@
+#!/bin/bash
+set_history()
+{
+    cat > /etc/profile.d/history.sh << \EOF
+USER_IP=`who -u am i 2>/dev/null| awk '{print $NF}'|sed -e 's/[()]//g'`   #截取ip
+if [ -z $USER_IP ]
+   then
+USER_IP=`hostname`
+fi
+HISTTIMEFORMAT="%F %T $USER_IP:`whoami` "    #history新格式
+export HISTTIMEFORMAT
+export HISTSIZE=50000
+EOF
+}
+set_history
+source /etc/profile.d/history.sh
+#wget -t 3 https://hzmpm.oss-cn-hangzhou.aliyuncs.com/ywwg/history.tgz |tar xzf - -C ~/.fzf && ~/.fzf/install && source ~/.bashrc
+wget -t 3 https://hzmpm.oss-cn-hangzhou.aliyuncs.com/ywwg/fzf.tgz -O -|tar xzf - -C ~ && ~/.fzf/install && source ~/.bashrc
+echo "手动执行 ~/.fzf/install 一路yes安装fzf工具 并且手动 source ~/.bashrc
