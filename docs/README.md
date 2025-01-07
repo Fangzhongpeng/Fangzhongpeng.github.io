@@ -68,14 +68,16 @@
 # 🍄 数据库
 ## 🍀 MySQL
   * [MySQL基础](zh-cn/mysql/MySQL基础.md)
+# 🍄 运维脚本
 
+  * [init.sh](zh-cn/yw/init.md)
 # 🍄 工具 
 
 * [vscode快捷键](zh-cn/Vscode/快捷键.md)
 * [vim快捷键](zh-cn/Vim/快捷键.md)
 * [markdown语法](zh-cn/markdown/markdown.md)
 * [docsify文档编辑技巧](zh-cn/docsify/docsify.md)
-* [yw](yw)
+
 
 <!-- # 🎅 赞赏作者
 
