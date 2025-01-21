@@ -41,6 +41,7 @@
   * [10 - 函数高级特性](/Golang/Golang入门笔记-CH10-函数高级特性.md)
   * [11 - 错误处理](/Golang/Golang入门笔记-CH11-错误处理.md)
   * [12 - 并发](/Golang/Golang入门笔记-CH12-并发.md)
+  * [13 - gorm](/zh-cn/Golang/gorm/gorm.md)
 ## 🍀 二
 ### 🥝 三
 
