@@ -293,7 +293,7 @@ func rawSQL(db *gorm.DB) {
 
 GORM 的默认规则旨在简化开发工作，同时提供了丰富的自定义选项。通过合理使用这些规则
 
-## gorm使用说明
+## GORM使用说明
 
 
 ---
@@ -565,3 +565,130 @@ func main() {
 }
 ```
 
+# GORM 作用域函数详解
+
+GORM 的作用域（Scopes）功能允许你将常用的查询逻辑封装为可重用的函数。通过作用域函数，可以简化复杂查询的构建，提高代码的可读性和可维护性。以下是 GORM 作用域函数的详细说明和示例。
+
+---
+
+## 1. **作用域函数的作用**
+
+- **封装查询逻辑**：将常用的查询条件封装为函数，避免重复代码。
+- **链式调用**：可以在查询中链式调用多个作用域函数，构建复杂的查询。
+- **提高可读性**：通过命名作用域函数，使查询逻辑更清晰。
+
+---
+
+## 2. **定义作用域函数**
+
+作用域函数是一个返回 `func(db *gorm.DB) *gorm.DB` 的函数。以下是一个简单的作用域函数示例：
+
+```go
+func IsActive(db *gorm.DB) *gorm.DB {
+    return db.Where("status = ?", "active")
+}
+```
+## 3. 使用作用域函数
+在查询时，可以通过 Scopes 方法调用作用域函数：
+```
+var users []User
+db.Scopes(IsActive).Find(&users)
+```
+生成的 SQL
+```
+SELECT * FROM users WHERE status = 'active';
+```
+## 4. 链式调用作用域函数
+可以链式调用多个作用域函数，构建复杂的查询：
+```
+func IsActive(db *gorm.DB) *gorm.DB {
+    return db.Where("status = ?", "active")
+}
+
+func IsAdmin(db *gorm.DB) *gorm.DB {
+    return db.Where("role = ?", "admin")
+}
+
+var users []User
+db.Scopes(IsActive, IsAdmin).Find(&users)
+```
+生成的 SQL
+```
+SELECT * FROM users WHERE status = 'active' AND role = 'admin';
+```
+## 5. 带参数的作用域函数
+作用域函数可以接受参数，实现更灵活的查询逻辑：
+```
+func HasRole(role string) func(db *gorm.DB) *gorm.DB {
+    return func(db *gorm.DB) *gorm.DB {
+        return db.Where("role = ?", role)
+    }
+}
+
+var users []User
+db.Scopes(HasRole("admin")).Find(&users)
+```
+生成的 SQL
+    SELECT * FROM users WHERE role = 'admin';
+## 6. 作用域函数的实际应用
+示例 1：分页查询
+```
+func Paginate(page, pageSize int) func(db *gorm.DB) *gorm.DB {
+    return func(db *gorm.DB) *gorm.DB {
+        offset := (page - 1) * pageSize
+        return db.Offset(offset).Limit(pageSize)
+    }
+}
+
+var users []User
+db.Scopes(Paginate(2, 10)).Find(&users)
+```
+生成的 SQL
+```
+SELECT * FROM users OFFSET 10 LIMIT 10;
+```
+示例 2：时间范围查询
+```
+func CreatedBetween(start, end time.Time) func(db *gorm.DB) *gorm.DB {
+    return func(db *gorm.DB) *gorm.DB {
+        return db.Where("created_at BETWEEN ? AND ?", start, end)
+    }
+}
+
+var users []User
+db.Scopes(CreatedBetween(time.Now().AddDate(0, -1, 0), time.Now())).Find(&users)
+```
+生成的 SQL
+```
+SELECT * FROM users WHERE created_at BETWEEN '2023-09-01 12:00:00' AND '2023-10-01 12:00:00';
+```
+## 7. 作用域函数的组合
+
+可以将多个作用域函数组合在一起，实现更复杂的查询逻辑：
+```
+func IsActive(db *gorm.DB) *gorm.DB {
+    return db.Where("status = ?", "active")
+}
+
+func HasRole(role string) func(db *gorm.DB) *gorm.DB {
+    return func(db *gorm.DB) *gorm.DB {
+        return db.Where("role = ?", role)
+    }
+}
+
+func Paginate(page, pageSize int) func(db *gorm.DB) *gorm.DB {
+    return func(db *gorm.DB) *gorm.DB {
+        offset := (page - 1) * pageSize
+        return db.Offset(offset).Limit(pageSize)
+    }
+}
+
+var users []User
+db.Scopes(IsActive, HasRole("admin"), Paginate(2, 10)).Find(&users)
+```
+生成的 SQL
+```
+SELECT * FROM users 
+WHERE status = 'active' AND role = 'admin' 
+OFFSET 10 LIMIT 10;
+```
